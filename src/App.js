@@ -1,22 +1,34 @@
 import logo from './logo.svg';
+import { TagsInput } from "react-tag-input-component";
+
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [selected, setSelected] = useState([]);
+  const [result, setResult] = useState([]);
+  const [number, setNumber] = useState(3);
+
+  const generateNumber = () => {
+    setResult(selected.sort(() => Math.random() - 0.5).slice(0, number > 0 ? number : selected.length));
+  }
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <TagsInput
+        value={selected}
+        onChange={setSelected}
+        name="names"
+        placeHolder="Nomes"
+      />
+      
+      <input type={"number"} onChange={(e) => setNumber(e.target.value)} />
+      <button onClick={() => generateNumber()}>Vai lá</button>
+      <ul>
+        {result.map((val, key) => <li id={key}>{val}</li>)}
+      </ul>
+
+
       </header>
     </div>
   );
