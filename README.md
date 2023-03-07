@@ -1,31 +1,21 @@
 # Algoritmo de sorteio para amigo secreto com fluxo perfeito.
 
-Aqui foi criado um algoritmo de sorteio para amigo secreto com o objetivo de corrigir um problema bem comum:
+Foi desenvolvido um algoritmo de sorteio para amigo secreto com o objetivo de solucionar dois problemas comuns: a possibilidade de uma pessoa ser sorteada para si mesma ou duas pessoas se sortearem entre si, deixando o grupo desintegrado. A solução proposta consiste em reorganizar aleatoriamente a lista de participantes, de forma que cada pessoa receba o nome da pessoa seguinte da lista e a última pessoa receba o nome da primeira, resultando em um ciclo completo e entrelaçado de todos os participantes. Este método evita a divisão entre os participantes e mantém o grupo inteiro atrelado em um ciclo infinito, ao contrário do método convencional.
 
- - Uma pessoa sortear a si mesma
- - Duas pessoas se sortearem isoladamente do grupo.
+No método convencional de sorteio para amigo secreto, há uma possibilidade de divisão entre as pessoas D e E com as pessoas A, B e C, como ilustrado abaixo:
 
- A técnica utilizada foi ao invés de sortear pessoas para outras pessoas de forma aleatória, nós pegamos a lista de pessoas e reorganizamos de forma aleatória.
- 
- Após reorganizar a lista, cada pessoa recebe o nome da pessoa seguinte da lista;
- A última pessoa recebe o nome da primeira pessoa.
+Pessoa A sorteia Pessoa B
+Pessoa B sorteia Pessoa C
+Pessoa C sorteia Pessoa A
+Pessoa D sorteia Pessoa E
+Pessoa E sorteia Pessoa D
 
- Assim, temos um ciclo completo com todos os participantes entrelaçados.
+Para solucionar este problema, propõe-se a utilização da técnica de ordenação, em que a lista de participantes é reorganizada aleatoriamente e cada pessoa recebe o nome da pessoa seguinte da lista, resultando em um ciclo completo de todos os participantes entrelaçados. Dessa forma, o grupo inteiro fica atrelado em um ciclo infinito, como demonstrado a seguir:
 
-A vantagem desse método em relação ao método convencional, é justamente evitar que o grupo fique divido, por exemplo:
+Pessoa A recebe o nome de Pessoa B
+Pessoa B recebe o nome de Pessoa C
+Pessoa C recebe o nome de Pessoa D
+Pessoa D recebe o nome de Pessoa E
+Pessoa E recebe o nome de Pessoa A.
 
- - Pessoa A > Pessoa B
- - Pessoa B > Pessoa C
- - Pessoa C > Pessoa A
- - Pessoa D > Pessoa E
- - Pessoa E > Pessoa D
 
- Desse modo, há uma divisão entre as pessoas D e E com as pessoas A, B e C.
-
-Utilizando a técnica de ordenação, o grupo inteiro fica atrelado em um ciclo infinito:
-
- - Pessoa A > Pessoa B
- - Pessoa B > Pessoa C
- - Pessoa C > Pessoa D
- - Pessoa D > Pessoa E
- - Pessoa E > Pessoa A
